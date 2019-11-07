@@ -22,6 +22,8 @@ func _draw():
 	draw_rect(rectangle, Color.antiquewhite, false)
 
 func _on_Crop_pressed():
+	if rectangle.size.length() <= 0:
+		return
 	var data : Image = texture.get_data()
 	var x = data.get_rect(rectangle)
 	var imageTexture = ImageTexture.new()
