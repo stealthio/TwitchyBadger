@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://Yeet112.png" type="Texture" id=2]
 [ext_resource path="res://StyleBoxPurple.tres" type="StyleBox" id=3]
+[ext_resource path="res://Cropable.gd" type="Script" id=4]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.431373, 0.282353, 0.705882, 1 )
@@ -22,21 +23,24 @@ margin_bottom = 300.0
 [node name="Background" type="ColorRect" parent="UI"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = 200.0
-margin_bottom = 100.0
+margin_left = 0.476227
+margin_right = 200.476
+margin_bottom = 222.0
 color = Color( 0, 0, 0, 1 )
 
 [node name="BackgroundImport" type="ColorRect" parent="UI"]
 anchor_bottom = 1.0
 margin_right = 140.0
+margin_bottom = -20.0
 color = Color( 0.0980392, 0.0901961, 0.109804, 1 )
 
 [node name="BackgroundEmote" type="ColorRect" parent="UI"]
+editor/display_folded = true
 anchor_bottom = 1.0
-margin_left = 156.554
-margin_top = 11.8765
-margin_right = 556.554
-margin_bottom = -173.124
+margin_left = 157.0
+margin_top = 33.0
+margin_right = 434.0
+margin_bottom = -152.0
 color = Color( 0.0980392, 0.0901961, 0.109804, 1 )
 
 [node name="Preview28" type="TextureRect" parent="UI/BackgroundEmote"]
@@ -73,23 +77,30 @@ expand = true
 stretch_mode = 1
 
 [node name="ButtonExportEmote" type="Button" parent="UI/BackgroundEmote"]
-margin_left = 288.672
-margin_top = 84.4485
-margin_right = 385.673
-margin_bottom = 104.448
+margin_left = 290.214
+margin_top = 47.8216
+margin_right = 428.214
+margin_bottom = 67.8216
 custom_styles/hover = SubResource( 1 )
 custom_styles/pressed = SubResource( 2 )
 custom_styles/focus = ExtResource( 3 )
 custom_styles/normal = ExtResource( 3 )
 text = "Export Emote"
 
+[node name="Emote" type="Label" parent="UI/BackgroundEmote"]
+margin_left = 113.833
+margin_top = 5.43003
+margin_right = 163.833
+margin_bottom = 19.43
+text = "Emote"
+
 [node name="BackgroundBadge" type="ColorRect" parent="UI"]
 editor/display_folded = true
 anchor_bottom = 1.0
-margin_left = 157.298
-margin_top = 138.882
-margin_right = 557.298
-margin_bottom = -41.118
+margin_left = 157.0
+margin_top = 160.0
+margin_right = 436.0
+margin_bottom = -20.0
 color = Color( 0.0980392, 0.0901961, 0.109804, 1 )
 
 [node name="Preview18" type="TextureRect" parent="UI/BackgroundBadge"]
@@ -126,15 +137,100 @@ expand = true
 stretch_mode = 1
 
 [node name="ButtonExportBadge" type="Button" parent="UI/BackgroundBadge"]
-margin_left = 289.716
-margin_top = 84.3912
-margin_right = 386.716
-margin_bottom = 104.391
+margin_left = 290.214
+margin_top = -56.1784
+margin_right = 428.214
+margin_bottom = -36.1784
 custom_styles/hover = SubResource( 1 )
 custom_styles/pressed = SubResource( 2 )
 custom_styles/focus = ExtResource( 3 )
 custom_styles/normal = ExtResource( 3 )
 text = "Export Badge"
+
+[node name="Badge" type="Label" parent="UI/BackgroundBadge"]
+margin_left = 108.002
+margin_top = 3.79239
+margin_right = 158.002
+margin_bottom = 34.7924
+text = "Badge
+"
+
+[node name="BackgroundEdit" type="ColorRect" parent="UI"]
+anchor_bottom = 1.0
+margin_left = 158.0
+margin_top = 300.0
+margin_right = 437.0
+margin_bottom = 161.0
+color = Color( 0.0980392, 0.0901961, 0.109804, 1 )
+
+[node name="BtnReplaceColor" type="Button" parent="UI/BackgroundEdit"]
+editor/display_folded = true
+margin_left = 9.53322
+margin_top = 38.1514
+margin_right = 120.533
+margin_bottom = 58.1514
+custom_styles/hover = ExtResource( 3 )
+custom_styles/pressed = ExtResource( 3 )
+custom_styles/focus = ExtResource( 3 )
+custom_styles/disabled = ExtResource( 3 )
+custom_styles/normal = ExtResource( 3 )
+text = "Replace Color"
+
+[node name="ColorFrom" type="ColorPickerButton" parent="UI/BackgroundEdit/BtnReplaceColor"]
+margin_top = -30.0
+margin_right = 111.0
+margin_bottom = -4.0
+
+[node name="Label" type="Label" parent="UI/BackgroundEdit/BtnReplaceColor/ColorFrom"]
+margin_left = 36.1556
+margin_top = 6.15417
+margin_right = 76.1556
+margin_bottom = 20.1542
+text = "From"
+
+[node name="ColorTo" type="ColorPickerButton" parent="UI/BackgroundEdit/BtnReplaceColor"]
+margin_left = 1.0
+margin_top = 24.0
+margin_right = 111.0
+margin_bottom = 52.0
+
+[node name="Label" type="Label" parent="UI/BackgroundEdit/BtnReplaceColor/ColorTo"]
+margin_left = 45.156
+margin_top = 8.31064
+margin_right = 85.156
+margin_bottom = 22.3106
+text = "To"
+
+[node name="TextureRect" type="TextureRect" parent="UI/BackgroundEdit"]
+margin_left = 150.717
+margin_top = 3.61417
+margin_right = 262.717
+margin_bottom = 115.614
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 2 )
+expand = true
+script = ExtResource( 4 )
+
+[node name="ColorRect" type="ColorRect" parent="UI/BackgroundEdit/TextureRect"]
+show_behind_parent = true
+margin_left = -1.0
+margin_top = -1.0
+margin_right = 113.0
+margin_bottom = 113.0
+color = Color( 0.392157, 0.254902, 0.643137, 1 )
+
+[node name="Button" type="Button" parent="UI/BackgroundEdit/TextureRect"]
+margin_left = 13.6795
+margin_top = 131.087
+margin_right = 102.68
+margin_bottom = 151.087
+custom_styles/hover = ExtResource( 3 )
+custom_styles/pressed = ExtResource( 3 )
+custom_styles/focus = ExtResource( 3 )
+custom_styles/disabled = ExtResource( 3 )
+custom_styles/normal = ExtResource( 3 )
+text = "Crop"
 
 [node name="FileDialogImport" type="FileDialog" parent="UI"]
 margin_right = 275.0
@@ -173,7 +269,7 @@ stretch_mode = 1
 [node name="ButtonImport" type="Button" parent="UI/VBoxContainer"]
 margin_top = 118.0
 margin_right = 112.0
-margin_bottom = 138.0
+margin_bottom = 132.0
 custom_styles/hover = SubResource( 1 )
 custom_styles/pressed = SubResource( 2 )
 custom_styles/focus = ExtResource( 3 )
@@ -182,27 +278,52 @@ custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Import"
 
 [node name="OptionButton" type="OptionButton" parent="UI"]
-margin_left = 262.883
-margin_top = 270.865
-margin_right = 400.883
-margin_bottom = 290.865
+margin_left = 446.951
+margin_top = 53.7741
+margin_right = 584.951
+margin_bottom = 73.7741
 text = "Scaling Method"
 
 [node name="Label" type="Label" parent="UI/OptionButton"]
-margin_left = -104.148
-margin_top = 3.15598
-margin_right = -7.14784
-margin_bottom = 17.156
+margin_left = 17.3271
+margin_top = -16.28
+margin_right = 114.327
+margin_bottom = -2.28003
 text = "Scaling Method"
 
 [node name="Description" type="RichTextLabel" parent="UI"]
-margin_left = 6.312
-margin_top = 155.696
-margin_right = 126.312
-margin_bottom = 283.696
+margin_left = 6.0
+margin_top = 156.0
+margin_right = 126.0
+margin_bottom = 280.0
 custom_colors/default_color = Color( 1, 1, 1, 1 )
 text = "Import your image here, it will be previewed in the different sizes on the right. After that you can export it as Emote or Badge!"
 scroll_active = false
+
+[node name="Description2" type="RichTextLabel" parent="UI"]
+margin_left = 448.0
+margin_top = 134.0
+margin_right = 583.0
+margin_bottom = 258.0
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+text = "Emotes will be exported in 28x28, 56x56 and 112x112 pixels. For badges it's 18x18, 36x36, 72x72"
+scroll_active = false
+
+[node name="Preview" type="Label" parent="UI"]
+margin_left = 157.132
+margin_top = 18.994
+margin_right = 207.132
+margin_bottom = 32.994
+text = "Preview"
+
+[node name="Edit" type="Label" parent="UI"]
+margin_left = 156.138
+margin_top = 286.431
+margin_right = 206.138
+margin_bottom = 300.431
+text = "Edit"
 [connection signal="pressed" from="UI/BackgroundEmote/ButtonExportEmote" to="." method="_on_ButtonExportEmote_pressed"]
 [connection signal="pressed" from="UI/BackgroundBadge/ButtonExportBadge" to="." method="_on_ButtonExportBadge_pressed"]
+[connection signal="pressed" from="UI/BackgroundEdit/BtnReplaceColor" to="." method="_on_ButtonReplaceColor_pressed"]
+[connection signal="pressed" from="UI/BackgroundEdit/TextureRect/Button" to="UI/BackgroundEdit/TextureRect" method="_on_Crop_pressed"]
 [connection signal="pressed" from="UI/VBoxContainer/ButtonImport" to="." method="_on_Button_pressed"]
