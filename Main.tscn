@@ -1,0 +1,208 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Main.gd" type="Script" id=1]
+[ext_resource path="res://Yeet112.png" type="Texture" id=2]
+[ext_resource path="res://StyleBoxPurple.tres" type="StyleBox" id=3]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.431373, 0.282353, 0.705882, 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.321569, 0.211765, 0.52549, 1 )
+
+[node name="Main" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="UI" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 600.0
+margin_bottom = 300.0
+
+[node name="Background" type="ColorRect" parent="UI"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 200.0
+margin_bottom = 100.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="BackgroundImport" type="ColorRect" parent="UI"]
+anchor_bottom = 1.0
+margin_right = 140.0
+color = Color( 0.0980392, 0.0901961, 0.109804, 1 )
+
+[node name="BackgroundEmote" type="ColorRect" parent="UI"]
+anchor_bottom = 1.0
+margin_left = 156.554
+margin_top = 11.8765
+margin_right = 556.554
+margin_bottom = -173.124
+color = Color( 0.0980392, 0.0901961, 0.109804, 1 )
+
+[node name="Preview28" type="TextureRect" parent="UI/BackgroundEmote"]
+margin_left = 21.1327
+margin_top = 42.8927
+margin_right = 49.1327
+margin_bottom = 70.8925
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 1
+
+[node name="Preview56" type="TextureRect" parent="UI/BackgroundEmote"]
+margin_left = 69.6902
+margin_top = 28.3509
+margin_right = 125.69
+margin_bottom = 84.3508
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 1
+
+[node name="Preview112" type="TextureRect" parent="UI/BackgroundEmote"]
+margin_left = 143.819
+margin_top = 1.54317
+margin_right = 255.819
+margin_bottom = 113.543
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 1
+
+[node name="ButtonExportEmote" type="Button" parent="UI/BackgroundEmote"]
+margin_left = 288.672
+margin_top = 84.4485
+margin_right = 385.673
+margin_bottom = 104.448
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = ExtResource( 3 )
+custom_styles/normal = ExtResource( 3 )
+text = "Export Emote"
+
+[node name="BackgroundBadge" type="ColorRect" parent="UI"]
+editor/display_folded = true
+anchor_bottom = 1.0
+margin_left = 157.298
+margin_top = 138.882
+margin_right = 557.298
+margin_bottom = -41.118
+color = Color( 0.0980392, 0.0901961, 0.109804, 1 )
+
+[node name="Preview18" type="TextureRect" parent="UI/BackgroundBadge"]
+margin_left = 26.6108
+margin_top = 55.423
+margin_right = 44.6108
+margin_bottom = 73.423
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 1
+
+[node name="Preview36" type="TextureRect" parent="UI/BackgroundBadge"]
+margin_left = 79.5826
+margin_top = 45.2746
+margin_right = 115.583
+margin_bottom = 81.2746
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 1
+
+[node name="Preview72" type="TextureRect" parent="UI/BackgroundBadge"]
+margin_left = 168.296
+margin_top = 24.4168
+margin_right = 240.296
+margin_bottom = 96.4168
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 1
+
+[node name="ButtonExportBadge" type="Button" parent="UI/BackgroundBadge"]
+margin_left = 289.716
+margin_top = 84.3912
+margin_right = 386.716
+margin_bottom = 104.391
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = ExtResource( 3 )
+custom_styles/normal = ExtResource( 3 )
+text = "Export Badge"
+
+[node name="FileDialogImport" type="FileDialog" parent="UI"]
+margin_right = 275.0
+margin_bottom = 130.0
+window_title = "Open a File"
+mode = 0
+access = 2
+filters = PoolStringArray( "*.png", "*.jpg" )
+current_dir = "/Users/paul-topfer/Documents/Schule/TwitchConverter"
+current_path = "/Users/paul-topfer/Documents/Schule/TwitchConverter/"
+
+[node name="FileDialogExport" type="FileDialog" parent="UI"]
+margin_right = 275.0
+margin_bottom = 130.0
+window_title = "Save the file"
+access = 2
+filters = PoolStringArray( "*.png" )
+current_dir = "/Users/paul-topfer/Documents/Schule/TwitchConverter"
+current_path = "/Users/paul-topfer/Documents/Schule/TwitchConverter/"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 122.0
+margin_bottom = 142.0
+
+[node name="Preview" type="TextureRect" parent="UI/VBoxContainer"]
+margin_right = 112.0
+margin_bottom = 114.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 1
+
+[node name="ButtonImport" type="Button" parent="UI/VBoxContainer"]
+margin_top = 118.0
+margin_right = 112.0
+margin_bottom = 138.0
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = ExtResource( 3 )
+custom_styles/normal = ExtResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Import"
+
+[node name="OptionButton" type="OptionButton" parent="UI"]
+margin_left = 262.883
+margin_top = 270.865
+margin_right = 400.883
+margin_bottom = 290.865
+text = "Scaling Method"
+
+[node name="Label" type="Label" parent="UI/OptionButton"]
+margin_left = -104.148
+margin_top = 3.15598
+margin_right = -7.14784
+margin_bottom = 17.156
+text = "Scaling Method"
+
+[node name="Description" type="RichTextLabel" parent="UI"]
+margin_left = 6.312
+margin_top = 155.696
+margin_right = 126.312
+margin_bottom = 283.696
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+text = "Import your image here, it will be previewed in the different sizes on the right. After that you can export it as Emote or Badge!"
+scroll_active = false
+[connection signal="pressed" from="UI/BackgroundEmote/ButtonExportEmote" to="." method="_on_ButtonExportEmote_pressed"]
+[connection signal="pressed" from="UI/BackgroundBadge/ButtonExportBadge" to="." method="_on_ButtonExportBadge_pressed"]
+[connection signal="pressed" from="UI/VBoxContainer/ButtonImport" to="." method="_on_Button_pressed"]
